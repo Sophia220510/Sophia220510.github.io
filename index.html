@@ -1,1 +1,362 @@
-<h1>Página principal temporária</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Academy | Cursos de Desenvolvimento de Games</title>
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-color: #0b0c10;
+            --secondary-bg: #1f2833;
+            --text-color: #c5a059; /* Texto alternativo/suave */
+            --light-text: #ffffff;
+            --neon-cyan: #66fcf1;
+            --neon-green: #45f3ff;
+            --purple-accent: #8a2be2;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(11, 12, 16, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--purple-accent);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--purple-accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle, rgba(138,43,226,0.2) 0%, rgba(11,12,16,1) 70%);
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--neon-cyan);
+            filter: drop-shadow(0 0 5px var(--neon-cyan));
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            color: #ccc;
+        }
+
+        .btn-cta {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--bg-color);
+            background-color: var(--neon-cyan);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--neon-cyan);
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px var(--neon-cyan), 0 0 50px var(--purple-accent);
+            background-color: var(--light-text);
+        }
+
+        /* --- CURSOS SECTION --- */
+        .courses {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--purple-accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 30px 20px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 10px 20px rgba(102, 252, 241, 0.2);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--neon-cyan);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .btn-card {
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid var(--purple-accent);
+            color: var(--light-text);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-card:hover {
+            background-color: var(--purple-accent);
+            box-shadow: 0 0 15px var(--purple-accent);
+        }
+
+        /* --- CONTATO / INSCRIÇÃO --- */
+        .contact {
+            padding: 80px 8%;
+            background-color: var(--secondary-bg);
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form select {
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: var(--bg-color);
+            color: var(--light-text);
+            font-size: 16px;
+        }
+
+        .contact-form input:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050608;
+            padding: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Level Up<span>_</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#cursos">Trilhas</a></li>
+                <li><a href="#inscricao">Matrícula</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Transforme sua paixão em <span>Games</span></h1>
+        <p>Aprenda a programar, desenhar e lançar seus próprios jogos do zero com os maiores especialistas do mercado.</p>
+        <button class="btn-cta" onclick="scrollParaInscricao()">Iniciar Minha Jornada</button>
+    </section>
+
+    <section class="courses" id="cursos">
+        <h2 class="section-title">Escolha sua Classe</h2>
+        <div class="grid-courses">
+            
+            <div class="card">
+                <div>
+                    <div class="card-icon">🎮</div>
+                    <h3>Unity 3D Master</h3>
+                    <p>Domine a engine mais popular do mercado. Crie jogos de ação, RPGs e explore o universo do desenvolvimento 3D.</p>
+                </div>
+                <button class="btn-card" onclick="selecionarCurso('Unity 3D Master')">Saber Mais</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-icon">👾</div>
+                    <h3>Unreal Blueprint Pro</h3>
+                    <p>Aprenda programação visual e crie jogos com gráficos realistas e de alta performance utilizando a Unreal Engine 5.</p>
+                </div>
+                <button class="btn-card" onclick="selecionarCurso('Unreal Blueprint Pro')">Saber Mais</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-icon">🎨</div>
+                    <h3>Pixel Art & Game Design</h3>
+                    <p>Dê vida aos seus cenários e personagens. Entenda as mecânicas que tornam um jogo viciante e divertido.</p>
+                </div>
+                <button class="btn-card" onclick="selecionarCurso('Pixel Art & Game Design')">Saber Mais</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="inscricao">
+        <h2 class="section-title">Suba de Nível</h2>
+        <p style="margin-bottom: 30px; color: #ccc;">Preencha os dados abaixo para receber o plano de estudos gratuito.</p>
+        
+        <form class="contact-form" id="cadastroForm">
+            <input type="text" id="nome" placeholder="Seu Nickname / Nome Completo" required>
+            <input type="email" id="email" placeholder="Seu melhor E-mail" required>
+            <select id="cursoInteresse">
+                <option value="">Selecione o curso de interesse</option>
+                <option value="Unity 3D Master">Unity 3D Master</option>
+                <option value="Unreal Blueprint Pro">Unreal Blueprint Pro</option>
+                <option value="Pixel Art & Game Design">Pixel Art & Game Design</option>
+            </select>
+            <button type="submit" class="btn-cta" style="width: 100%;">Garantir Minha Vaga</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Level Up Academy. Projeto Escolar - Todos os direitos reservados de mentirinha.</p>
+    </footer>
+
+    <script>
+        // Função para rolar a tela suavemente até a seção de inscrição
+        function scrollParaInscricao() {
+            document.getElementById('inscricao').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Função que pré-seleciona o curso no formulário ao clicar no card
+        function selecionarCurso(nomeDoCurso) {
+            const select = document.getElementById('cursoInteresse');
+            select.value = nomeDoCurso;
+            scrollParaInscricao();
+            
+            // Pequeno feedback visual no campo selecionado
+            select.style.borderColor = '#66fcf1';
+            setTimeout(() => {
+                select.style.borderColor = '#444';
+            }, 1500);
+        }
+
+        // Evento de envio do formulário (simulação de sucesso)
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede a página de recarregar
+            
+            const nome = document.getElementById('nome').value;
+            const curso = document.getElementById('cursoInteresse').value || "nosso ecossistema";
+
+            // Alerta personalizado simulando o upgrade do jogador
+            alert(`🎉 Parabéns, ${nome}! Você acabou de se inscrever no curso [ ${curso} ]. Verifique sua caixa de entrada para receber o acesso!`);
+            
+            // Limpa o formulário
+            this.reset();
+        });
+    </script>
+</body>
+</html>
